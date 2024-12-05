@@ -20,6 +20,16 @@ data:
     {{- end }}
     
     <configuration>
+    {{- range $baseProperty := .Values.configMap.metastoreServiceConfig.baseProperties }}
+      <property>
+        <name>{{ $baseProperty.name }}</name>
+        <value>{{ $baseProperty.value }}</value>
+      {{- if $baseProperty.description }}
+        <description>{{ $baseProperty.description }}</description>
+      {{- end }}
+      </property>
+    {{- end }}
+    
     {{- if .Values.configMap.metastoreServiceConfig.properties }}
       {{- range $property := .Values.configMap.metastoreServiceConfig.properties }}
       <property>
