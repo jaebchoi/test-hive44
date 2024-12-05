@@ -22,7 +22,7 @@
       </strategy>
     </jenkins.model.BuildDiscarderProperty>
     <com.coravy.hudson.plugins.github.GithubProjectProperty plugin="github@1.33.1">
-      <projectUrl>test.url</projectUrl>
+      <projectUrl>https://github.com/jaebchoi/test-hive44</projectUrl>
       <displayName></displayName>
     </com.coravy.hudson.plugins.github.GithubProjectProperty>
     <hudson.model.ParametersDefinitionProperty>
@@ -59,7 +59,7 @@
                 <configVersion>2</configVersion>
                 <userRemoteConfigs>
                     <hudson.plugins.git.UserRemoteConfig>
-                        <url>test.url</url>
+                        <url>https://github.com/jaebchoi/test-hive44</url>
                         <credentialsId>github</credentialsId>
                     </hudson.plugins.git.UserRemoteConfig>
                 </userRemoteConfigs>

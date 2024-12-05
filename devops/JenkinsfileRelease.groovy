@@ -6,7 +6,7 @@
  */
 
 def gitId = 'github'
-def gitRepo = 'test.url'
+def gitRepo = 'https://github.com/jaebchoi/test-hive44'
 def gitBranch = params.get("releaseBranch")
 gitBranch = gitBranch ? gitBranch : "dev"
 

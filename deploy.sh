@@ -20,7 +20,7 @@ startup() {
     if ! kubectl wait -A --for=condition=Ready pod -l app.kubernetes.io/name=argocd-server; then
       exit $?
     fi
-    argocd repo add test.url --server localhost:30080 --plaintext --insecure-skip-server-verification
+    argocd repo add https://github.com/jaebchoi/test-hive44 --server localhost:30080 --plaintext --insecure-skip-server-verification
   fi
 }
 
@@ -40,7 +40,7 @@ deploy() {
       --server localhost:30080 --plaintext \
       --dest-namespace test-hive44 \
       --dest-server https://kubernetes.default.svc \
-      --repo test.url \
+      --repo https://github.com/jaebchoi/test-hive44 \
       --path test-hive44-deploy/src/main/resources \
       --revision $branch \
       --helm-set spec.targetRevision=$branch \
