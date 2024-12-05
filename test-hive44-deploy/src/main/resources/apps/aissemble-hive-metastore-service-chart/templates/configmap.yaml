@@ -18,16 +18,18 @@ data:
         {{- $propDict := set $propDict $property.name $property.value }}
       {{- end }}
     {{- end }}
+    
     <configuration>
-    {{- range $baseProperty := $.Values.configMap.metastoreServiceConfig.baseProperties }}
+    {{- range $baseProperty := .Values.configMap.metastoreServiceConfig.baseProperties }}
+      {{- if and (hasKey $basePropDict $baseProperty.name) (not (hasKey $propDict $baseProperty.name))}}
       <property>
         <name>{{ $baseProperty.name }}</name>
         <value>{{ $baseProperty.value }}</value>
-    
       {{- if $baseProperty.description }}
         <description>{{ $baseProperty.description }}</description>
       {{- end }}
       </property>
+      {{- end }}
     {{- end }}
     
     {{- if .Values.configMap.metastoreServiceConfig.properties }}
@@ -35,7 +37,6 @@ data:
       <property>
         <name>{{ $property.name }}</name>
         <value>{{ $property.value }}</value>
-    
         {{- if $property.description }}
         <description>{{ $property.description }}</description>
         {{- end }}
